@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "profile";
+    Layout = "~/Views/Shared/usermaster.cshtml";
+}
+
+<div class="container-fluid" style="background-color:white;">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 panel panel-body" style="background-color:teal;">
+                <h2 class="text-center" style="color:white;background-color:orange;font-size:25px;text-align:center;">Profile</h2>
+                <hr />
+                <form action="/Admin/profile" method="post">
+                    <span> Name</span>
+                    <input type="text" class="form-control" name="txtname" value="@ViewBag.Name" />
+                    <span>Father name</span>
+                    <input type="text" class="form-control" name="txtfname" value="@ViewBag.fname" />
+                    <span>Email</span>
+                    <input type="text" class="form-control" name="txtemail" value="@ViewBag.email" />
+                    <span>Mobile</span>
+                    <input type="text" class="form-control" name="txtmobile" value="@ViewBag.mobile" />
+                   
+                    <br />
+                    <input type="submit" class="form-control btn-danger" value="Submit" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

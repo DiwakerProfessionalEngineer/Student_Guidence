@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "viewenquiry";
+    Layout = "~/Views/Shared/Adminmaster.cshtml";
+}
+
+@using System.Data;
+@using System.Data.SqlClient;
+@using studentcarrierguidence.Models;
+<h2 style="color:white;background-color:teal;text-align:center;padding:10px">ViewEnquiry</h2>
+<div>
+
+    <table border="1" style="border-collapse:collapse;" class="table bordered-stripped" cellpadding="20">
+
+        <thead style="background:teal">
+            <tr>
+
+                <th>Name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>query</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                DatabaseManager db = new DatabaseManager();
+                string cmd = "select*from tbl_enquiry";
+                DataTable dt = db.GetAllRecord(cmd);
+            }
+            @if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    <tr>
+                        <td>@dt.Rows[i]["name"]</td>
+                        <td>@dt.Rows[i]["email"]</td>
+                        <td>@dt.Rows[i]["subject"]</td>
+                        <td>@dt.Rows[i]["query"]</td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+
+    </table>
+</div>
+
+

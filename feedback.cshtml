@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "feedback";
+    Layout = "~/Views/Shared/usermaster.cshtml";
+}
+
+<link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+<script src="~/Content/js/jquery-2.1.0.min.js"></script>
+<script src="~/Content/js/bootstrap.min.js"></script>
+<style>
+    .fa-star {
+        font-size: 50px;
+        color: brown;
+    }
+
+    #sp1, #sp2, #sp3, #sp4, #sp5 {
+        display: none;
+    }
+</style>
+<body>
+    <div class="col-sm-12">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4 panel panel" style="margin-top: 5%;">
+            Rating Now<br>
+
+            <span class="fa fa-star" id="s1"></span>
+            <span class="fa fa-star" id="s2"></span>
+            <span class="fa fa-star" id="s3"></span>
+            <span class="fa fa-star" id="s4"></span>
+            <span class="fa fa-star" id="s5"></span>
+
+            <span class="fa fa-star" id="sp1">1</span>
+            <span class="fa fa-star" id="sp2">2</span>
+            <span class="fa fa-star" id="sp3">3</span>
+            <span class="fa fa-star" id="sp4">4</span>
+            <span class="fa fa-star" id="sp5">5</span>
+            <br>
+
+
+            Write Your Review
+            <br>
+
+            <textarea style="height:170px;" class="form-control"></textarea><br>
+            <input type="button" class="form-control btn-info" value="Review Now" />
+
+
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#s1,#s2,#s3,#s4,#s5").css("cursor", "pointer");
+            $("#s1").click(function () {
+                var total = $("#sp1").text();
+                $("#s1").css("color", "yellow");
+                $("#s2,#s3,#s4,#s5").css("color", "maroon");
+            })
+            $("#s2").click(function () {
+                var total = $("#sp2").text();
+                $("#s1,#s2").css("color", "yellow");
+                $("#s3,#s4,#s5").css("color", "maroon");
+            })
+            $("#s3").click(function () {
+                var total = $("#sp3").text();
+                $("#s1,#s2,#s3").css("color", "yellow");
+                $("#s4,#s5").css("color", "maroon");
+            })
+            $("#s4").click(function () {
+                var total = $("#sp4").text();
+                $("#s1,#s2,#s3,#s4").css("color", "yellow");
+                $("#s5").css("color", "maroon");
+            })
+            $("#s5").click(function () {
+                var total = $("#sp5").text();
+                $("#s1,#s2,#s3,#s4,#s5").css("color", "yellow");
+            })
+
+        })
+    </script>
+</body>
+
+
+
+
+
+

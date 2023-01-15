@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Registation";
+    Layout = "~/Views/Shared/homemaster.cshtml";
+}
+<script src="~/Content/js/jquery-3.3.1.min.js"></script>
+<script src="~/Content/js/JavaScript1.js"></script>
+<h2 style="color:green;text-align:center;font-family:'Times New Roman';text-shadow:2px 2px 2px green">Registration</h2>
+<hr />
+        <div class="col-sm-12 panel panel-body">
+            <form action="/home/Registation" method="post" enctype="multipart/form-data">
+                <div class="col-sm-6 panel panel-body">   
+            <label>Name</label>
+                <input type="text" name="txtname"class="form-control"placeholder="Enter Name"autocomplete="off" required />
+          <label>Father Name</label>
+            <input type="text"placeholder="Enter Father Name"autocomplete="off"class="form-control"name="txtfname"  />
+                <label>Email</label>
+                <input type="email"class="form-control"name="txtemail"autocomplete="off"placeholder="Enter Email" required />
+                    <span id="sp"></span>
+                    <label>Enter Password</label>
+                    <input type="password" class="form-control" name="txtpass" autocomplete="off" />
+                    <label>Mobile</label>
+                    <input type="number" 
+                           class="form-control" name="txtmob" />
+                    <label>Gender</label>
+                    <select name="txtgender" class="form-control">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+
+                    </select>
+                    </div>
+                <div class="col-sm-6 panel panel-body">
+                    <label>Highest Qualification</label>
+                    <select class="form-control" name="txtq">
+                        <option>DIPLOMA</option>
+                        <option>B.TECH</option>
+                        <option>B.SC</option>
+                        <option>B.COM</option>
+                        <option>B.A</option>
+                        <option>INTERMIDIATE</option>
+                        <option>M.TECH</option>
+                        <option>PHD</option>
+                        <option>BCA</option>
+                        <option>MBBS</option>
+                    </select>
+                    <label>Profile photo</label>
+                    <input type="file" class="form-control" id="picture" name="fupic"/>
+                    <label>Your Cptcha Code</label>
+                    <input type="text" class="form-control" name="txtcph" readonly style="width:30%;font-family:Bahnschrift" value="@ViewBag.cph" />
+                    <label>Enter Captcha Code</label>
+                    <input type="text" name="txtcaptcha" class="form-control" autocomplete="off" />
+                    <br />
+                    <input id="accept" name="accept" type="checkbox" /><label>  Fill all above box</label> <br>
+                    <input id="submitbtn" disabled="disabled" name="Submit" type="submit" value="Submit" class="form-control btn-primary" style="margin-top:10px" />
+            
+                    <br />
+                    <input type="reset" class="form-control btn-danger" />
+                </div>
+                </form>
+    <script>
+        $(document).ready(function () {
+            $("#submitbtn").click(function () {
+                var fupic = $("#picture").val();
+                var lst = fupic.lastIndexOf(".") + 1;
+                var cu = fupic.substring(lst);
+                var cut = cu.toLowerCase();
+                if (cut == "jpg" || cut == "jpeg" || cut == "png")
+                    return true;
+                else
+                    alert("Pic is Invailid");
+                    return false;
+            })
+        })
+    </script>
+        </div>
+        <div class="col-sm-1">
+            
+        
+    </div>
+
+

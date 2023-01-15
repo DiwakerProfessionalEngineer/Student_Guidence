@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/homemaster.cshtml";
+}
+
+<h2 class="text text-center text-success" >Login Panel Here</h2>
+
+<div class="col-sm-12 panel panel-body">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4 panel panel-body">
+        <form action="/Home/Login" method="post">
+            Enter UserID
+            <input type="email" name="txtuserid" class="form-control" />
+            Enter password
+            <input type="password" name="txtpass" class="form-control" />
+            <br />
+            <input type="submit" value="Login now" class="form-control" style="background:#16ad82;color:white" />
+
+        </form>
+
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+ 
+        
+  
+

@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Editregistration";
+    Layout = "~/Views/Shared/usermaster.cshtml";
+}
+
+<div class="col-sm-12">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4 panel panel-body">
+            <h2 class="text-center" style="color:white;background-color:teal;font-size:25px;text-align:center;"> Edit Registration</h2>
+            <hr />
+            <form action="Editregistration" method="post">
+                <span>Edit Name</span>
+                <input type="text" class="form-control" name="txtname" value="@ViewBag.name" />
+                <span>Edit Father's Name</span>
+                <input type="text" class="form-control" name="txtfname" value="@ViewBag.fname" />
+                <span>Edit Email</span>
+                <input type="text" class="form-control" name="txtemail" value="@ViewBag.Email" />
+                <span>Edit Mobile</span>
+                <input type="text" class="form-control" name="txtmobile" value="@ViewBag.mobile" />
+                <span>Change pass</span>
+                <input type="text" class="form-control" name="txtpass" value="@ViewBag.pass" />
+
+                <br />
+                <input type="submit" class="form-control btn-danger" value="Submit" />
+            </form>
+        </div>
+    </div>
+</div>
+

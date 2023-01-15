@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "ViewContactus";
+    Layout = "~/Views/Shared/Adminmaster.cshtml";
+}
+@using System.Data;
+@using System.Data.SqlClient;
+@using studentcarrierguidence.Models;
+<h2 style="color:white;background-color:teal;text-align:center;padding:10px">ViewContactus</h2>
+<div>
+   
+    <table border="1" style="border-collapse:collapse;" class="table bordered-stripped" cellpadding="20">
+
+        <thead style="background:teal">
+            <tr>
+
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>location</th>
+                <th>Edit Data</th>
+                <th>Delete Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                DatabaseManager db = new DatabaseManager();
+                string cmd = "select*from tbl_conatct";
+                DataTable dt = db.GetAllRecord(cmd);
+            }
+            @if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    <tr>
+                        <td>@dt.Rows[i]["email"]</td>
+                        <td>@dt.Rows[i]["contact"]</td>
+                        <td>@dt.Rows[i]["location"]</td>
+                        <td><a href="/Admin/EditContact?up=@dt.Rows[i]["email"]"><span class="fa fa-pencil"></span></a></td>
+                        <td>
+                            <a href="/Admin/deletecontact?Del=@dt.Rows[i]["email"]">
+                                <span class="fa fa-trash"></span>
+                                </a>
+</td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+
+    </table>
+</div>
+
+   

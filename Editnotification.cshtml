@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Editnotification";
+    Layout = "~/Views/Shared/Adminmaster.cshtml";
+}
+
+<div class="col-sm-12">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4 panel panel-body">
+            <h2 class="text-center" style="color:white;background-color:teal;font-size:25px;text-align:center;">Edit Notification </h2>
+            <hr />
+            <form action="Editnotification" method="post">
+                <span>Edit Notification</span>
+                <input type="text" class="form-control" name="txtnoti" value="@ViewBag.notification" />
+            
+
+                <br />
+                <input type="submit" class="form-control btn-danger" value="Submit" />
+            </form>
+        </div>
+    </div>
+</div>

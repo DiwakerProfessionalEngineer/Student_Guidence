@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "EditContact";
+    Layout = "~/Views/Shared/Adminmaster.cshtml";
+}
+<link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/css/hover.css" rel="stylesheet" />
+<script src="~/Content/js/bootstrap.min.js"></script>
+<script src="~/Content/js/jquery-2.1.0.min.js"></script>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 panel panel-body">
+                <h2 class="text-center" style="color:white;background-color:teal;font-size:25px;text-align:center;">Edit Contact Edit</h2>
+                <hr />
+                <form action="EditContact" method="post">
+                    <span>Edit Email</span>
+                    <input type="text" class="form-control" name="txtemail" value="@ViewBag.email" />
+                    <span>Edit Contact</span>
+                    <input type="text" class="form-control" name="txtcontact" value="@ViewBag.contact" />
+                    <span>Edit Location</span>
+                    <input type="text" class="form-control" name="txtlocation" value="@ViewBag.Location" />
+
+                    <br />
+                    <input type="submit" class="form-control btn-danger" value="Submit" />
+                </form>
+            </div>
+        </div>
+</div>

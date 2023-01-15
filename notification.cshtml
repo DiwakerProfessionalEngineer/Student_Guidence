@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "notification";
+    Layout = "~/Views/Shared/Adminmaster.cshtml";
+}
+
+@using System.Data;
+@using System.Data.SqlClient;
+@using studentcarrierguidence.Models;
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <h2 style="background: #16ad82; border-radius: 10px 10px 0px 0px; text-align:center;">notification</h2>
+            <form action="notification" method="post">
+                Add notification
+                <textarea name="txtnoti" class="form-control"></textarea>
+                <input type="submit" value="Submit" class="btn btn-success" />
+
+            </form>
+
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <h2 style="background: #16ad82; border-radius: 10px 10px 0px 0px; text-align:center;">Notification</h2>
+            <table border="1" style="border-collapse:collapse;" class="table bordered-stripped" cellpadding="20">
+                <thead>
+                    <tr>
+                        <th>Notification</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    @{
+                        DatabaseManager db = new DatabaseManager();
+                        string cmd = "select*from tbl_notification";
+                        DataTable dt = db.GetAllRecord(cmd);
+
+
+                        if (dt.Rows.Count > 0)
+                        {
+                            for (int i = 0; i < dt.Rows.Count; i++)
+                            {
+                                <tr>
+                                    <td> @dt.Rows[i]["Notification"]</td>
+                                    <td><a href="/Admin/Editnotification?up=@dt.Rows[i]["Notification"]"><span class="fa fa-pencil"></span></a></td>
+                                    <td>
+                                        <a href="/Admin/deletenotification?Del=@dt.Rows[i]["Notification"]">
+                                            <span class="fa fa-trash"></span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                            }
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+</div>

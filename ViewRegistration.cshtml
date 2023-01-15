@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "ViewRegistration";
+    Layout = "~/Views/Shared/usermaster.cshtml";
+}
+@using System.Data;
+@using System.Data.SqlClient;
+@using studentcarrierguidence.Models
+
+
+<script>
+    $(document).ready(function () {
+        $("#example").DataTable();
+    })
+</script>
+<h2 style="color:white;background-color:orangered;text-align:center;padding:10px">View Registration Data</h2>
+<div>
+    @{
+
+        DatabaseManager db = new DatabaseManager();
+        string cmd = "select* from tbl_Registration";
+        DataTable dt = db.GetAllRecord(cmd);
+
+        <span class="text-center" id="spshow"></span>
+        <table border="1" style="border-collapse:collapse;" class="table bordered-stripped" cellpadding="20">
+
+
+            <thead style="background:teal;">
+                <tr>
+                    <th>Name</th>
+                    <th>Father Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Mobile</th>
+                    <th>Gender</th>
+                    <th>Qualification</th>
+                    <th>Picture</th>
+                    <th>Reg.Data</th>
+                    <th>Edit Data</th>
+                    <th>Delete Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (dt.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        <tr>
+                            <td>@dt.Rows[i]["name"]</td>
+                            <td>@dt.Rows[i]["fname"]</td>
+                            <td class="td1">@dt.Rows[i]["Email"]</td>
+                            <td>@dt.Rows[i]["pass"]</td>
+                            <td>@dt.Rows[i]["mobile"]</td>
+                            <td>@dt.Rows[i]["Gender"]</td>
+                            <td>@dt.Rows[i]["qualification"]</td>
+                            <td><img src="../Content/profile/@dt.Rows[i]["picture"]" style="height:50px;width:50px;"></td>
+                            <td>@dt.Rows[i]["rdt"]</td>
+                            <td><a href="/User/EditRegistration?up=@dt.Rows[i]["Email"]" class="fa fa-edit"></a></td>
+                            <td><a href="/User/deleteregistration?Del=@dt.Rows[i]["email"]"><span class="fa fa-trash"></span></a> </td>
+                        </tr>
+                    }
+                }
+
+            </tbody>
+
+        </table>
+        <script>
+
+            $(document).ready(function () {
+                $(".fa-trash").css("cursor", "pointer");
+                $(".fa-trash").click(function () {
+                    var del = $(this).closest('tr').find('.td1').text();
+                    $.ajax({
+                        type: "post",
+                        url: "/Admin/deleteReg",
+                        data: { Del: del },
+                        success: function (data) {
+                            $("table").find('tr').remove();
+                            alert(data);
+                            $("#spshow").text(msg);
+                        }
+                    })
+
+                })
+
+
+
+            })
+        </script>
+    }
+
+</div>
+
+
+
+

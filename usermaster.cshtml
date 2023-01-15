@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewBag.Title</title>
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/hover.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-2.1.0.min.js"></script>
+    <script src="~/Content/js/bootstrap.js"></script>
+
+    <style>
+        #menu {
+            color: black;
+            font-size: 18px;
+            margin: 4px;
+        }
+
+            #menu:hover {
+                color: white;
+                background-color: orange;
+                border-bottom: 1px solid black;
+            }
+    </style>
+    @using System.Data;
+    @using System.Data.SqlClient;
+    @using studentcarrierguidence.Models;
+
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12" style="min-height:20px;background:orange;">
+                <h3 style="text-align:center;color:white">Welcom to user Zone</h3>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 ">
+                   
+                    <div class="col-sm-12">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                    <ul class="nav navbar-nav">
+                                        <li><a href="/home" id="menu">Home &nbsp;&nbsp;<span class="fa fa-home"></span> </a></li>
+                                        <li><a href="/User/feedback" id="menu">Feedback &nbsp;&nbsp;<span class="fa fa-home"></span> </a></li>
+                                        <li><a href="/User/Index" id="menu">Dashboard &nbsp;&nbsp;<span class="fa fa-dashboard"></span> </a></li>
+                                        <li><a href="/User/Profile" id="menu">Profile &nbsp;&nbsp;<span class="glyphicon glyphicon-pencil"></span></a></li>
+                                        <li><a href="/User/ChangePassword" id="menu">ChangePassword &nabla;&nbsp;<span class="fa fa-lock"></span></a></li>
+                                        <li><a href="/User/ViewRegistration" id="menu">ViewRegistration &nbsp;&nbsp;<span class="glyphicon glyphicon-log-out"></span></a></li>
+                                        <li><a href="/User/logout" id="menu">Logout &nbsp;&nbsp;<span class="glyphicon glyphicon-log-out"></span></a></li>
+                                    </ul>
+
+                                </div><!-- /.navbar-collapse -->
+                            </div><!-- /.container-fluid -->
+                        </nav>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-----User profile pic---->
+
+        <div style="height:auto">
+            @RenderBody()
+
+        </div>
+    <div class="container-fluid">
+        <div class="row" id="footer" style="background:orange;">
+            <div class=" col-sm-4 footer-brand animated fadeinleft">
+                <h2 style="text-align:center; color:white;  ">About Us</h2><hr />
+                <h4 style="color:black;">
+                    Career guidance help students understand their strengths and weaknesses and then match them
+                    with their skills and interest so that they get the best suitable career choice.
+                </h4>
+                <h4 style="color:black;">Newsletter</h4>
+                <p>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope" style="height:20px;"></span></button>
+                        </span>
+                    </div><!-- /input-group -->
+                </p>
+
+            </div>
+            <div class="col-sm-4 footer-nav animated fadeInUp">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-6">
+                            <h2 style="text-align:center; color:white;">Menu</h2><hr />
+
+                            <ul class="pages" style="list-style:none;">
+                                <li><a href="home/Index" style="color:black">Home</a></li>
+                                <li><a href="home/AboutUs" style="color:black">AboutUs</a></li>
+                                <li><a href="home/Registation" style="color:black">Registration</a></li>
+                                <li><a href="home/Login" style="color:black">Login</a></li>
+                                <li><a href="home/ContactUs" style="color:black">Contacts</a></li>
+                                <li><a href="#" style="color:black">Terms & Condition</a></li>
+                                <li><a href="#" style="color:black">Privacy Policy</a></li>
+                            </ul>
+
+                        </div>
+
+                        <div class="col-sm-6">
+                            <h2 style="text-align:center; color:white;">Follow</h2><hr />
+                            <ul style="list-style:none;">
+                                <li><a href="#" style="color:black">Facebook</a></li>
+                                <li><a href="#" style="color:black">Twitter</a></li>
+                                <li><a href="#" style="color:black">Instagram</a></li>
+                                <li><a href="#" style="color:black">Google</a></li>
+                            </ul>
+
+                            <img src="~/Content/image/google-plus.png" style="height:40px;float:left;margin-left:2%; margin-top:20px;" />
+                            <img src="~/Content/image/instagram.png" style="height: 40px; float: left; margin-left: 2%; margin-top: 20px;" />
+                            <img src="~/Content/image/twitter.png" style="height: 40px; float: left; margin-left: 2%; margin-top: 20px; " />
+                            <img src="~/Content/image/whatsapp.png" style="height: 40px; float: left; margin-left: 2%; margin-top: 20px; " />
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-4">
+                <!---widgets column center-->
+
+                <ul class="list-unstyled clear-margins">
+                    <!--widgets--->
+                    <li class="widgets-container widget_recent_news">
+                        <!--widgets list-->
+                        <h2 style="text-align:center;color:white; ">Contact Detail</h2><hr />
+                        <div class="footerp">
+                            <h3 class="title-median">Arcane Programming Infotech Pvt. Ltd.</h3>
+                            <p><b>Email id:</b><a href="arcanepininfotech@gmail.com">arcanepininfotech@gmail.com</a></p>
+                            <p>
+                                <b>Helpline Number</b>
+                                <b style="color:#ffc106;">(8AM TO 10PM):</b> +91-6306199011, +91-9936796369
+                            </p>
+                            <p><b>Developed By:</b>Smriti Rani</p>
+                            <p><b>Phone Number:</b> 9336000490</p>
+
+                        </div>
+                </ul>
+            </div>
+
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12" style="padding:0px;">
+                <p style="text-align:center;background-color:black;color:white;">All right Resevred &copy; Arcane Programming Infotech</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+  
+
+</body>
+</html>
